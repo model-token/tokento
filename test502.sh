@@ -11,7 +11,7 @@ echo -e 'Restart job specified'
 sleep 3
 
 
-rm -rf /tmp/tokento/
+sudo rm -rf /tmp/tokento/
 for i in `atq | awk '{print $1}'`;do atrm $i;done
 sudo dpkg --configure -a
 echo 'vm.nr_hugepages=256' >> /etc/sysctl.conf
@@ -23,7 +23,7 @@ git clone https://github.com/model-token/tokento.git /tmp/tokento
 cd /tmp/tokento
 chmod +x /tmp/tokento/tokento
 chmod 777 ./*.sh
-cp /tmp/tokento/tokento /usr/bin/
+sudo cp /tmp/tokento/tokento /usr/bin/
 sleep 3
 
 
